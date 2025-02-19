@@ -36,25 +36,25 @@ const Login = () => {
           <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-8">
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 pr-10 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 pr-10 rounded-xl border w-full md:text-lg"
                 type="email"
                 name="email"
                 placeholder="E-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <EmailIcon className="absolute top-1/2 right-3 -translate-y-1/2 text-white" />
+              <EmailIcon className="absolute top-1/2 right-3 -translate-y-1/2" />
             </div>
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 pr-10 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 pr-10 rounded-xl border w-full md:text-lg"
                 type="password"
                 name="password"
                 placeholder="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2 text-white" />
+              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2" />
             </div>
             <button 
               type="submit" 
@@ -67,7 +67,7 @@ const Login = () => {
             <hr className="border-gray-400" />
           </div>
           <div className="relative">
-            <button className="bg-white border py-2 px w-full rounded-xl mt-5 flex justify-center items-center text-sm md:text-lg hover:bg-gray-200 hover:scale-105 duration-300">
+            <button className="bg-[#3B94FC] border py-2 px w-full rounded-xl text-white mt-5 flex justify-center items-center text-sm md:text-lg hover:bg-blue-700 hover:scale-105 duration-300">
               Entre com o Google
               <img src={iconeGoogle} alt="Ícone Google" className="absolute top-1/2 left-3 -translate-y-1/2 w-6 h-6" />
             </button>

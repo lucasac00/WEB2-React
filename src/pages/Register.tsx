@@ -73,7 +73,7 @@ const Register = () => {
             {/* Name Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 rounded-xl border w-full md:text-lg"
                 type="text"
                 name="name"
                 placeholder="Nome"
@@ -85,7 +85,7 @@ const Register = () => {
             {/* Email Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 pr-10 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 pr-10 rounded-xl border w-full md:text-lg"
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -93,12 +93,12 @@ const Register = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <EmailIcon className="absolute top-1/2 right-3 -translate-y-1/2 text-white" />
+              <EmailIcon className="absolute top-1/2 right-3 -translate-y-1/2" />
             </div>
             {/* Password Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 pr-10 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 pr-10 rounded-xl border w-full md:text-lg"
                 type="password"
                 name="password"
                 placeholder="Senha"
@@ -106,12 +106,12 @@ const Register = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2 text-white" />
+              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2" />
             </div>
             {/* Confirm Password Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 pr-10 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 pr-10 rounded-xl border w-full md:text-lg"
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirmar Senha"
@@ -119,12 +119,12 @@ const Register = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
-              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2 text-white" />
+              <VpnKeyIcon className="absolute top-1/2 right-3 -translate-y-1/2" />
             </div>
             {/* CEP Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 rounded-xl border w-full md:text-lg"
                 type="text"
                 name="cep"
                 placeholder="CEP"
@@ -137,7 +137,7 @@ const Register = () => {
             {/* Street Field */}
             <div className="relative">
               <input
-                className="bg-[#3B94FC] p-2 pl-3 rounded-xl border w-full placeholder-white text-white md:text-lg"
+                className="bg-white p-2 pl-3 rounded-xl border w-full md:text-lg"
                 type="text"
                 name="street"
                 placeholder="Rua"
