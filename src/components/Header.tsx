@@ -43,14 +43,14 @@ const Header = () => {
           {loggedUser && loggedUser.loggedIn ? (
             <button 
               onClick={handleLogout} 
-              className="border border-white px-4 py-2 rounded hover:bg-white hover:bg-opacity-10 hover:text-blue-primary transition"
+              className="border border-white px-4 py-2 rounded hover:bg-white hover:bg-opacity-10 hover:text-blue-700 transition"
             >
               {loggedUser.email}
             </button>
           ) : (
             <Link 
               to="/login" 
-              className="border border-white px-4 py-2 rounded hover:bg-white hover:bg-opacity-10 hover:text-blue-primary transition"
+              className="border border-white px-4 py-2 rounded hover:bg-white hover:bg-opacity-10 hover:text-blue-700 transition"
             >
               Login
             </Link>
@@ -58,7 +58,7 @@ const Header = () => {
         </div>
       </div>
       {mobileNavOpen && (
-        <div className="md:hidden bg-blue-primary text-white px-4 pt-2 pb-4 flex flex-col space-y-2">
+        <div className="md:hidden bg-[#3B94FC] text-white px-4 pt-2 pb-4 flex flex-col space-y-2">
           <a href="#" className="block hover:text-gray-200">Serviços</a>
           <a href="#" className="block hover:text-gray-200">Mapa</a>
           <a href="#" className="block hover:text-gray-200">Agenda</a>

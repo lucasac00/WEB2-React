@@ -42,7 +42,7 @@ const Carousel = () => {
         <div className="absolute inset-0 bg-gray-900 bg-opacity-30 pointer-events-none"></div>
       </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-        <Link to="/login" className="bg-blue-primary text-white px-6 py-3 rounded hover:bg-opacity-90 transition text-lg font-semibold shadow-lg">
+        <Link to="/register" className="bg-[#3B94FC] text-white px-6 py-3 rounded hover:bg-opacity-90 hover:bg-blue-700 transition text-lg font-semibold shadow-lg">
           Crie uma conta
         </Link>
       </div>
