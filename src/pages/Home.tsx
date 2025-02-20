@@ -5,6 +5,8 @@ import calendario from "../assets/calendario.png"
 import { useEffect, useState } from 'react';
 import LeafletMap from '../components/Map';
 import SimpleMap from '../components/SimpleMap';
+import EventCalendar from '../components/EventCalendar'; // Import the new component
+
 
 export interface Clinic{
   name: string,
@@ -89,7 +91,7 @@ const Home = () => {
               </p>
             </div>
             <div className="flex justify-center">
-              <img src={calendario} alt="Calendário" className="w-full h-auto object-cover max-w-[480px] rounded-lg" />
+              <EventCalendar />
             </div>
           </div>
         </section>
