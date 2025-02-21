@@ -39,7 +39,7 @@ const Carousel = () => {
             <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
           </div>
         ))}
-        <div className="absolute inset-0 bg-gray-900 bg-opacity-30 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-opacity-30 pointer-events-none"></div>
       </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <Link to="/register" className="bg-[#3B94FC] text-white px-6 py-3 rounded hover:bg-opacity-90 hover:bg-blue-700 transition text-lg font-semibold shadow-lg">
