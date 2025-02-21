@@ -35,7 +35,7 @@ const Header = () => {
             <a href="#" className="hover:text-gray-200">Serviços</a>
             <a href="#" className="hover:text-gray-200">Mapa</a>
             <a href="#" className="hover:text-gray-200">Agenda</a>
-            <a href="#" className="hover:text-gray-200">Wikipetia</a>
+            <Link to="/wikipetia" className="hover:text-gray-200">Wikipetia</Link>
             <a href="#" className="hover:text-gray-200">Contato</a>
           </nav>
         </div>
@@ -62,7 +62,7 @@ const Header = () => {
           <a href="#" className="block hover:text-gray-200">Serviços</a>
           <a href="#" className="block hover:text-gray-200">Mapa</a>
           <a href="#" className="block hover:text-gray-200">Agenda</a>
-          <a href="#" className="block hover:text-gray-200">Wikipetia</a>
+          <Link to="/wikipetia" className="block hover:text-gray-200">Wikipetia</Link>
           <a href="#" className="block hover:text-gray-200">Contato</a>
         </div>
       )}

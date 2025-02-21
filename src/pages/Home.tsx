@@ -1,7 +1,7 @@
 import Header from '../components/Header';
 import Carousel from '../components/Carousel';
 //import map from "../assets/map.png"
-import calendario from "../assets/calendario.png"
+// import calendario from "../assets/calendario.png"
 import { useEffect, useState } from 'react';
 import LeafletMap from '../components/Map';
 import SimpleMap from '../components/SimpleMap';
