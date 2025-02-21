@@ -1,34 +1,30 @@
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Carousel from '../components/Carousel';
-//import map from "../assets/map.png"
-// import calendario from "../assets/calendario.png"
-import { useEffect, useState } from 'react';
 import LeafletMap from '../components/Map';
-import SimpleMap from '../components/SimpleMap';
-import EventCalendar from '../components/EventCalendar'; // Import the new component
+import EventCalendar from '../components/EventCalendar';
 
-
-export interface Clinic{
-  name: string,
-  lat: number,
-  lng: number
+export interface Clinic {
+  name: string;
+  lat: number;
+  lng: number;
 }
 
-export interface Location{
-  lat: number,
-  lng: number
+export interface Location {
+  lat: number;
+  lng: number;
 }
 
-const clinics : Clinic[] = [
-  { name: 'Clínica Sanavet', lat: -22.0077978, lng: -47.9023929 },
-  { name: 'Clínica SpecialeVet', lat: -22.0097872, lng: -47.9283138 },
-  { name: 'CSC Hospital Veterinário', lat: -22.0097872, lng: -47.9283138 },
-  { name: 'SamuVet 24 Horas', lat: -22.0072407, lng: -47.932777 }
+const clinics: Clinic[] = [
+  { name: 'Clínica Sanavet', lat: -22.011463, lng: -47.894920 },
+  { name: 'Clínica SpecialeVet', lat: -22.010707, lng: -47.897861 },
+  { name: 'CSC Hospital Veterinário', lat: -22.010609, lng: -47.881275 },
+  { name: 'SamuVet 24 Horas', lat: -22.023429, lng: -47.913315 }
 ];
 
 const Home = () => {
-
-  const [userLocation, setUserLocation] = useState<Location>();
+  const [userLocation, setUserLocation] = useState<Location | null>(null);
+  const [selectedClinicLocation, setSelectedClinicLocation] = useState<Location | null>(null);
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -58,22 +54,26 @@ const Home = () => {
           <div className="flex flex-col md:flex-row md:items-start justify-center gap-8">
             <div className="flex justify-center">
               <div className="w-full max-w-[480px]">
-               {userLocation ? (
-                <div className="h-full rounded-lg text-orange-200">
-                  <LeafletMap userLocation={userLocation} clinics={clinics} />
-                </div>
-               ) : (
-                <div className="">
-                  Carregando mapa...
-                </div>
-               )}
+                {userLocation ? (
+                  <LeafletMap 
+                    userLocation={userLocation} 
+                    clinics={clinics} 
+                    selectedClinicLocation={selectedClinicLocation} 
+                  />
+                ) : (
+                  <div>Carregando mapa...</div>
+                )}
               </div>
             </div>
             <div className="md:w-1/3">
               <ul className="space-y-2">
-                {['Clínica Sanavet', 'Clínica SpecialeVet', 'CSC Hospital Veterinário', 'SamuVet 24 Horas'].map((item, index) => (
-                  <li key={index} className="bg-[#3B94FC] text-white px-6 py-3 rounded hover:bg-opacity-90 transition text-lg font-semibold shadow-lg">
-                    {item}
+                {clinics.map((clinic, index) => (
+                  <li 
+                    key={index} 
+                    className="bg-[#3B94FC] text-white px-6 py-3 rounded hover:bg-opacity-90 transition text-lg font-semibold shadow-lg cursor-pointer hover:bg-blue-700"
+                    onClick={() => setSelectedClinicLocation({ lat: clinic.lat, lng: clinic.lng })}
+                  >
+                    {clinic.name}
                   </li>
                 ))}
               </ul>
@@ -95,7 +95,8 @@ const Home = () => {
             </div>
           </div>
         </section>
-
+        
+        {/* Copyright Section */}
         <div className='pt-20'/>
         <div className='flex justify-center pb-8'>
           <div className='bg-[#FFE8C9] p-2 rounded-2xl mx-2'>

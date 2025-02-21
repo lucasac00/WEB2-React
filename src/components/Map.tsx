@@ -2,12 +2,12 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Clinic, Location } from '../pages/Home';
+import { useEffect } from 'react';
 
-// Add missing marker configuration
+// Fix leaflet marker icons
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
 import markerIconShadow from 'leaflet/dist/images/marker-shadow.png';
 
-// Fix leaflet marker icons
 L.Icon.Default.mergeOptions({
   iconUrl: markerIcon,
   shadowUrl: markerIconShadow,
@@ -15,13 +15,25 @@ L.Icon.Default.mergeOptions({
   iconAnchor: [12, 41],
 });
 
-interface mapProps {
-    userLocation: Location,
-    clinics: Clinic[]
+interface MapProps {
+  userLocation: Location;
+  clinics: Clinic[];
+  selectedClinicLocation: Location | null;
 }
 
-const LeafletMap = ({ userLocation, clinics } : mapProps) => {
-  console.log('Map component rendered with:', userLocation);
+// Component to change the map center
+const ChangeMapCenter = ({ location }: { location: Location }) => {
+  const map = useMap();
+  useEffect(() => {
+    if (location) {
+      map.setView([location.lat, location.lng], 15);
+    }
+  }, [location, map]);
+
+  return null;
+};
+
+const LeafletMap = ({ userLocation, clinics, selectedClinicLocation }: MapProps) => {
   return (
     <MapContainer
       center={[userLocation.lat, userLocation.lng]}
@@ -33,9 +45,16 @@ const LeafletMap = ({ userLocation, clinics } : mapProps) => {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
+      
+      {/* Update map center when clinic is selected */}
+      {selectedClinicLocation && <ChangeMapCenter location={selectedClinicLocation} />}
+      
+      {/* User location marker */}
       <Marker position={[userLocation.lat, userLocation.lng]}>
         <Popup>Your Location</Popup>
       </Marker>
+
+      {/* Clinic markers */}
       {clinics.map((clinic, index) => (
         <Marker key={index} position={[clinic.lat, clinic.lng]}>
           <Popup>{clinic.name}</Popup>
